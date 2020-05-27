@@ -12,9 +12,20 @@ namespace Vidly_Udemy_Tutorials.Controllers
         // GET: Movies
         public ActionResult Random()
         {
-            var movie = new Movie() { Name = "Shrek!" };
+            var movie = new Movie() { Name = "Shrek!", Id=2 };
 
             return View(movie);
+        }
+
+        [Route("movies/released/{year}/{month}")]
+        public ActionResult ByReleaseDate (int year, int month)
+        {
+            return Content(year + "/" + month);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return Content("ID is " + id);
         }
     }
 }
